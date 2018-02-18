@@ -1,9 +1,7 @@
-package CI346.tracker.gui.receivers;
+package CI346.tracker.in;
 
 import CI346.tracker.Vehicle;
 import CI346.tracker.VehicleTracker;
-
-import java.util.Map;
 
 public class GPSReceiver extends Receiver {
     public GPSReceiver(VehicleTracker tracker, String id) {

@@ -6,8 +6,7 @@ import static CI346.tracker.VehicleFactory.MAX_Y;
 public class Vehicle {
     public final int x, y;
     public final DIR xdir, ydir;
-    private static final int STEP = 3;
-    private boolean moving = true;
+    private static final int STEP = 1;
 
     public enum DIR {
         POS(1),
@@ -27,28 +26,16 @@ public class Vehicle {
     }
 
     public Vehicle move() {
-        if(isMoving()) {
-            DIR newXDir = transformDir(x, MAX_X, xdir);
-            DIR newYDir = transformDir(y, MAX_Y, ydir);
-            ;
-            int newX = x + (STEP * newXDir.value);
-            int newY = y + (STEP * newYDir.value);
-            return new Vehicle(newX, newY, newXDir, newYDir);
-        } else {
-            return this;
-        }
-    }
+        DIR newXDir = transformDir(x, MAX_X, xdir);
+        DIR newYDir = transformDir(y, MAX_Y, ydir);
+        int newX = x + (STEP * newXDir.value);
+        int newY = y + (STEP * newYDir.value);
+        return new Vehicle(newX, newY, newXDir, newYDir);
 
-    public boolean isMoving() {
-        return moving;
-    }
-
-    public void setMoving(boolean moving) {
-        this.moving = moving;
     }
 
     private DIR transformDir(int val, int max, DIR d) {
-        if (val <=0 || val > max) {
+        if (val <= 0 || val > max) {
             return reverse(d);
         }
         return d;

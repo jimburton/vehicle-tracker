@@ -16,15 +16,15 @@ public class VehicleFactory {
         String name;
         for(int i = 0; i < numVehicles; i++) {
             name = prefix + i;
-            Vehicle p = randomPoint();
+            Vehicle p = randomPointNearBottom();
             result.put(name, p);
         }
         return result;
     }
 
-    private static Vehicle randomPoint() {
+    private static Vehicle randomPointNearBottom() {
         int randX = ThreadLocalRandom.current().nextInt(0, MAX_X);
-        int randY = ThreadLocalRandom.current().nextInt(0, MAX_Y);
+        int randY = ThreadLocalRandom.current().nextInt(MAX_Y-30, MAX_Y);
         return new Vehicle(randX, randY, randomDir(), randomDir());
     }
 

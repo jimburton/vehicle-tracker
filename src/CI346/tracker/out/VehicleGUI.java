@@ -1,4 +1,4 @@
-package CI346.tracker.gui;
+package CI346.tracker.out;
 
 import CI346.tracker.Vehicle;
 import CI346.tracker.VehicleFactory;
@@ -32,6 +32,7 @@ public class VehicleGUI extends JFrame {
 
         public PaintPanel() {
             super();
+            setDoubleBuffered(true);
             this.setBackground( Color.LIGHT_GRAY );
             refreshScreen();
         }

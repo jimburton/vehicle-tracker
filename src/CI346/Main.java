@@ -3,24 +3,28 @@ package CI346;
 import CI346.tracker.Vehicle;
 import CI346.tracker.VehicleFactory;
 import CI346.tracker.VehicleTracker;
-import CI346.tracker.gui.VehicleGUI;
-import CI346.tracker.gui.receivers.GPSReceiver;
-import CI346.tracker.gui.receivers.Receiver;
+import CI346.tracker.out.VehicleGUI;
+import CI346.tracker.in.GuardedGPSReceiver;
+import CI346.tracker.in.Receiver;
 
+import java.awt.*;
 import java.util.Map;
+import java.util.concurrent.Semaphore;
 
 public class Main {
 
     public static void main(String[] args) {
-        VehicleTracker tracker = new VehicleTracker(VehicleFactory.getVehicles(5));
+        VehicleTracker tracker = new VehicleTracker(VehicleFactory.getVehicles(10));
         Map<String, Vehicle> locs = tracker.getLocations();
         for(String id: locs.keySet()) {
             System.out.println(tracker.getLocation(id));
         }
         VehicleGUI gui = new VehicleGUI(tracker);
+        Semaphore s = new Semaphore(3);
+        Rectangle rect = new Rectangle(10, 10, 200, 200);
         Receiver r;
-        for(int i=0; i<5; i++) {
-            r = new GPSReceiver(tracker, "VEHICLE"+i);
+        for(int i=0; i<10; i++) {
+            r = new GuardedGPSReceiver(tracker, "VEHICLE"+i, rect, s);
             r.start();
         }
     }

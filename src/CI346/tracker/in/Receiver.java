@@ -1,4 +1,4 @@
-package CI346.tracker.gui.receivers;
+package CI346.tracker.in;
 
 import CI346.tracker.VehicleTracker;
 
