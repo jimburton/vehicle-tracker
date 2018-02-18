@@ -5,12 +5,9 @@ import CI346.tracker.VehicleFactory;
 import CI346.tracker.VehicleTracker;
 import CI346.tracker.in.GPSReceiver;
 import CI346.tracker.out.VehicleGUI;
-import CI346.tracker.in.GuardedGPSReceiver;
 import CI346.tracker.in.Receiver;
 
-import java.awt.*;
 import java.util.Map;
-import java.util.concurrent.Semaphore;
 
 public class Main {
 
