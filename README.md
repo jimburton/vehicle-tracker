@@ -26,7 +26,7 @@ by a `GPSReceiver`.
 ## Exercise
 
 The rectangle drawn on the screen by `VehicleGUI` represents an area in which only a fixed number 
-of vehicles, *n*, should be allowed at any one time. You are create a new subclass of `Receiver` that
+of vehicles, *n*, should be allowed at any one time. You will make a new subclass of `Receiver` that
 moves vehicles normally when outside of the critical area. However, when the vehicle is about to
 enter the critical area the receiver will stop moving the vehicle and wait for permission to
 enter. Permission is given when there are fewer than *n* vehicles in the area.
@@ -34,7 +34,7 @@ enter. Permission is given when there are fewer than *n* vehicles in the area.
 You will achieve this using an instance of `java.util.concurrent.Semaphore`. This is a bounded 
 semaphore (use the constructor that takes an int) that will keep track of how many vehicles are
 in the critical area. Make a subclass of `Receiver` called `GuardedGPSReceiver` with a constructor
-that takes the `id` of the vehicle to track, a copy of the vehicle tracker, a `java.awt.Rectangle`
+that takes a copy of the vehicle tracker, the `id` of the vehicle to track, a `java.awt.Rectangle`
 that represents the critical area, and a semaphore:
 
     public GuardedGPSReceiver(VehicleTracker tracker,
@@ -42,12 +42,12 @@ that represents the critical area, and a semaphore:
                               Rectangle criticalArea,
                               Semaphore semaphore) 
                               
-The `run` method of the new receiver will be very similar to that of `GPSReceiver` except that
-if moving the vehicle would mean it enters the critical area, the receiver will ask for permission 
-by calling `semaphore.acquire`. If more than *n* vehicles are in the critical area, this will put 
-the receiver to sleep until a vehicle leaves. When moving the vehicle would mean leaving the critical
-area, your receiver should release the semaphore. In pseudocode, the logic that determines when to
-move a vehicle looks like this:
+The `run` method of the new receiver will begin in a similar way to that of `GPSReceiver` by
+sleeping for 25ms. However, if moving the vehicle would mean it enters the critical area, the 
+receiver will ask for permission by calling `semaphore.acquire`. If more than *n* vehicles are 
+in the critical area, this will put the receiver to sleep until a vehicle leaves. When moving 
+the vehicle would mean leaving the critical area, your receiver should release the semaphore. 
+In pseudocode, the logic that determines when to move a vehicle looks like this:
 
     let future := where the vehicle will be if we move it
     let hasPermission := false
@@ -66,20 +66,20 @@ Your receiver will need a method that tells you whether a vehicle is in the crit
 
     private boolean inCriticalArea(Vehicle v)
     
-The simplest way to write this is by using `Rectangle.contains`.
+One way to write this is by using `Rectangle.contains`.
 
 Change the `main` method so that it creates a `Rectangle` with the right dimensions and 
 a bounded semaphore before creating the receivers:
 
-    Semaphore s = new Semaphore(3);
-    Rectangle rect = new Rectangle(10, 10, 200, 200);
+    Semaphore s = new Semaphore(3);                   //max 3 vehicles in the critical area
+    Rectangle rect = new Rectangle(10, 10, 200, 200); // the critical area
     Receiver r;
     for(int i=0; i<10; i++) {
       r = new GuardedGPSReceiver(tracker, "VEHICLE"+i, rect, s);
       r.start();
     }
     
-Once you ge this working, you should see the vehicles waiting on the edge of the area before
+Once you get this working you should see the vehicles waiting on the edge of the area before
 receiving permission to enter. You may notice that some vehicles continue to wait while other
 vehicles are given permission to enter. Change the semaphore to one that uses a *fair policy* 
 (i.e. the next thread to be woken up will be the one that has been waiting longest). What 
