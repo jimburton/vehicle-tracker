@@ -80,8 +80,9 @@ a bounded semaphore before creating the receivers:
     }
     
 Once you ge this working, you should see the vehicles waiting on the edge of the area before
-receiving permission to enter. Change the semaphore to one that uses a *fair policy* (i.e. the next
-thread to be woken up will be the one that has been waiting longest). What difference does this 
-make to the way the application runs?
+receiving permission to enter. You may notice that some vehicles continue to wait while other
+vehicles are given permission to enter. Change the semaphore to one that uses a *fair policy* 
+(i.e. the next thread to be woken up will be the one that has been waiting longest). What 
+difference does this make to the way the application runs?
 
     
