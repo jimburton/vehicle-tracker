@@ -51,6 +51,7 @@ public class VehicleGUI extends JFrame {
 
         public void paint( Graphics g ) {
             super.paint( g ); // clears drawing area
+            g.drawRect (10, 10, 200, 200);
             Map<String, Vehicle> locations = tracker.getLocations();
             Vehicle p;
             for(String id: locations.keySet()) {
