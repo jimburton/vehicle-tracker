@@ -33,7 +33,7 @@ public class GuardedGPSReceiver extends Receiver {
             Vehicle future = now.move();
             if(inCriticalArea(future)) {
                 if(!hasPermission) {
-                    System.out.println(trackedID + " entering critical area!");
+                    //System.out.println(trackedID + " entering critical area!");
                     try {
                         semaphore.acquire();
                     } catch (InterruptedException e) {

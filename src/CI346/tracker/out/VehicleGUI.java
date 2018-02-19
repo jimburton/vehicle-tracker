@@ -54,12 +54,19 @@ public class VehicleGUI extends JFrame {
             super.paint( g ); // clears drawing area
             g.drawRect (10, 10, 200, 200);
             Map<String, Vehicle> locations = tracker.getLocations();
+            String targetID = tracker.getTargetID();
             Vehicle p;
             for(String id: locations.keySet()) {
                 p = tracker.getLocation(id);
                 if(p != null) {
+                    if(id.equals(targetID)) {
+                        g.setColor(Color.RED);
+                    }
                     g.fillOval(p.x, p.y, DOT_SIZE, DOT_SIZE);
                     g.drawString(id.substring(id.length() - 1), p.x+DOT_SIZE, p.y);
+                    if(id.equals(targetID)) {
+                        g.setColor(Color.BLACK);
+                    }
                 }
             }
         }

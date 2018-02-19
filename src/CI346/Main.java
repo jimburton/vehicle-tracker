@@ -3,6 +3,7 @@ package CI346;
 import CI346.tracker.Vehicle;
 import CI346.tracker.VehicleFactory;
 import CI346.tracker.VehicleTracker;
+import CI346.tracker.in.TargetReceiver;
 import CI346.tracker.out.VehicleGUI;
 import CI346.tracker.in.GuardedGPSReceiver;
 import CI346.tracker.in.Receiver;
@@ -27,5 +28,6 @@ public class Main {
             r = new GuardedGPSReceiver(tracker, "VEHICLE"+i, rect, s);
             r.start();
         }
+        new TargetReceiver(tracker).start();
     }
 }

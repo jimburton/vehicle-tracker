@@ -9,6 +9,7 @@ public class VehicleTracker {
     private final ConcurrentMap<String, Vehicle>
             locations;
     private final Map<String, Vehicle> unmodifiableMap;
+    private String targetID;
 
     public VehicleTracker
             (Map<String, Vehicle> points) {
@@ -29,5 +30,13 @@ public class VehicleTracker {
         //System.out.println("Setting location for "+id);
         if(locations.replace(id, p) == null)
             throw new IllegalArgumentException("No such vehicle: "+id);
+    }
+
+    public String getTargetID() {
+        return targetID;
+    }
+
+    public void setTargetID(String targetID) {
+        this.targetID = targetID;
     }
 }
