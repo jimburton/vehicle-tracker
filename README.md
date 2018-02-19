@@ -23,7 +23,7 @@ Clone the repository and read the code to get an idea of how it works. Run the `
 class `CI346.Main`. You will see ten vehicles moving about the screen, each of which is controlled
 by a `GPSReceiver`.
 
-## Exercise
+## Exercise 1
 
 The rectangle drawn on the screen by `VehicleGUI` represents an area in which only a fixed number 
 of vehicles, *n*, should be allowed at any one time. You will make a new subclass of `Receiver` that
@@ -84,5 +84,23 @@ receiving permission to enter. You may notice that some vehicles continue to wai
 vehicles are given permission to enter. Change the semaphore to one that uses a *fair policy* 
 (i.e. the next thread to be woken up will be the one that has been waiting longest). What 
 difference does this make to the way the application runs?
+
+## Exercise 2
+
+Add a new type of `Receiver` called `TargetReceiver`. This receiver will launch a terminal allowing
+an operator to enter the ID of a vehicle of special interest. Change the `VehicleGUI` class so that
+it queries the tracker to see if there is a targetted vehicle. If there is one, the `VehicleGUI` will
+call attention top it by drawing it on screen in a different colour.
+
+Create a `String` field in `VehicleTracker` called `targetID` with accompanying getters and setters.
+The `run` method of `TargetReceiver` will consist mainly of a `while` loop that reads lines of input
+from the user until an empty line is entered, at which point the loop and the `run` methodf should 
+exit. Since we don't know which vehicle the `TargetReceiver` is tracking when the instance is created,
+the constructor should call the superclass constructor passing in `null` for the `trackedID` 
+parameter. When an ID is entered, call `tracker.setTargetID`.
+
+In the `paint` method of `VehicleGUI`, add a call to `tracker.getTargetID`. When drawing the vehicles,
+if the ID matches `targetID` you should draw it in a different colour, not forgetting to change the 
+colour back again afterwards.
 
     
