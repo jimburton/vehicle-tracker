@@ -5,7 +5,7 @@ import CI346.tracker.VehicleTracker;
 
 public abstract class Receiver extends Thread {
     protected final VehicleTracker tracker;
-    protected final String trackedID;
+    protected String trackedID;
 
     public Receiver(VehicleTracker tracker, String id) {
         this.tracker = tracker;
