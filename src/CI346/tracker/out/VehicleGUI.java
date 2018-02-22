@@ -52,6 +52,7 @@ public class VehicleGUI extends JFrame {
 
         public void paint( Graphics g ) {
             super.paint( g ); // clears drawing area
+            Rectangle r = new Rectangle(10, 10, 200, 200);
             g.drawRect (10, 10, 200, 200);
             Map<String, Vehicle> locations = tracker.getLocations();
             String targetID = tracker.getTargetID();
@@ -61,12 +62,12 @@ public class VehicleGUI extends JFrame {
                 if(p != null) {
                     if(id.equals(targetID)) {
                         g.setColor(Color.RED);
+                    } else if(r.contains(new Point(p.x, p.y))) {
+                        g.setColor(Color.BLUE);
                     }
                     g.fillOval(p.x, p.y, DOT_SIZE, DOT_SIZE);
                     g.drawString(id.substring(id.length() - 1), p.x+DOT_SIZE, p.y);
-                    if(id.equals(targetID)) {
-                        g.setColor(Color.BLACK);
-                    }
+                    g.setColor(Color.BLACK);
                 }
             }
         }
