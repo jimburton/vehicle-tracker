@@ -4,6 +4,7 @@ import CI346.tracker.Vehicle;
 import CI346.tracker.VehicleFactory;
 import CI346.tracker.VehicleTracker;
 import CI346.tracker.in.GPSReceiver;
+import CI346.tracker.in.TargetReceiver;
 import CI346.tracker.out.VehicleGUI;
 import CI346.tracker.in.Receiver;
 
