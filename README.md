@@ -27,7 +27,7 @@ by a `GPSReceiver`.
 
 The rectangle drawn on the screen by `VehicleGUI` represents an area in which only a fixed number 
 of vehicles, *n*, should be allowed at any one time. You will make a new subclass of `Receiver` that
-moves vehicles normally when outside of the critical area. However, when the vehicle is about to
+moves vehicles in the same way as `GPSReceiver` when outside of the critical area. However, when the vehicle is about to
 enter the critical area the receiver will stop moving the vehicle and wait for permission to
 enter. Permission is given when there are fewer than *n* vehicles in the area.
 
