@@ -22,7 +22,7 @@ public class TargetReceiver extends Receiver {
         try {
             String input = br.readLine();
             while (!input.trim().isEmpty()) {
-                tracker.setTargetID(input);
+                tracker.setTargetID("VEHICLE"+input);
                 System.out.println("Enter the ID of the vehicle to track, or newline to end");
                 input = br.readLine();
             }
