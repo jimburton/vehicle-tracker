@@ -15,7 +15,7 @@ the ID of the vehicle for which it will simulate GPS data. It does this by sleep
 time then getting a new location for the vehicle by calling its `move` method, then sending the 
 new location to the tracker.
 
-The *view* is provided by classes in the package `CI346.tracker.in`. Currently there is only one of 
+The *view* is provided by classes in the package `CI346.tracker.out`. Currently there is only one of 
 these, `VehicleGUI` but you could easily write more. `VehicleGUI` repeatedly fetches the collection
 of vehicles from the tracker then draws their location in a `JPanel`.
 
