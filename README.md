@@ -1,26 +1,25 @@
 # Vehicle Tracker
 
-An exercise for CI346 adapted from Goetz et al., *Java Concurrency in Practice*. See the lecture
-slides for Week 3 for an explanation.
+An exercise for CI646 adapted from Goetz et al., *Java Concurrency in Practice*.
 
 The application consists of a `VehicleTracker` that keeps track of a set of `Vehicle` objects
 and manages access to them with a `ConcurrentMap`. `Vehicle` is an immutable class that encapsulates 
 an *(x, y)* coordinate and a direction in which the vehicle is moving. These classes represent the
 *model* of the application. 
 
-The *controllers* are those classes in `CI346.tracker.in`, and are subclasses of `Receiver`. 
+The *controllers* are those classes in `CI646.tracker.in`, and are subclasses of `Receiver`. 
 `Receiver` is a subclass of `Thread` that simulates data about vehicle locations coming in to the 
 application. For instance, a `GPSReceiver` is initialised with a copy of the `VehicleTracker` and
 the ID of the vehicle for which it will simulate GPS data. It does this by sleeping for a short 
 time then getting a new location for the vehicle by calling its `move` method, then sending the 
 new location to the tracker.
 
-The *view* is provided by classes in the package `CI346.tracker.in`. Currently there is only one of 
+The *view* is provided by classes in the package `CI646.tracker.in`. Currently there is only one of 
 these, `VehicleGUI` but you could easily write more. `VehicleGUI` repeatedly fetches the collection
 of vehicles from the tracker then draws their location in a `JPanel`.
 
 Clone the repository and read the code to get an idea of how it works. Run the `main` method in the 
-class `CI346.Main`. You will see ten vehicles moving about the screen, each of which is controlled
+class `CI646.Main`. You will see ten vehicles moving about the screen, each of which is controlled
 by a `GPSReceiver`.
 
 ## Exercise 1

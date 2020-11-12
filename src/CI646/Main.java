@@ -1,11 +1,11 @@
-package CI346;
+package CI646;
 
-import CI346.tracker.Vehicle;
-import CI346.tracker.VehicleFactory;
-import CI346.tracker.VehicleTracker;
-import CI346.tracker.in.GPSReceiver;
-import CI346.tracker.out.VehicleGUI;
-import CI346.tracker.in.Receiver;
+import CI646.tracker.Vehicle;
+import CI646.tracker.VehicleFactory;
+import CI646.tracker.VehicleTracker;
+import CI646.tracker.in.GPSReceiver;
+import CI646.tracker.out.VehicleGUI;
+import CI646.tracker.in.Receiver;
 
 import java.util.Map;
 

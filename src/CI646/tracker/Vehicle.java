@@ -1,7 +1,7 @@
-package CI346.tracker;
+package CI646.tracker;
 
-import static CI346.tracker.VehicleFactory.MAX_X;
-import static CI346.tracker.VehicleFactory.MAX_Y;
+import static CI646.tracker.VehicleFactory.MAX_X;
+import static CI646.tracker.VehicleFactory.MAX_Y;
 
 public class Vehicle {
     public final int x, y;
