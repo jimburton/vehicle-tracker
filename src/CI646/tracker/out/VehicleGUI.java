@@ -1,8 +1,8 @@
-package CI346.tracker.out;
+package CI646.tracker.out;
 
-import CI346.tracker.Vehicle;
-import CI346.tracker.VehicleFactory;
-import CI346.tracker.VehicleTracker;
+import CI646.tracker.Vehicle;
+import CI646.tracker.VehicleFactory;
+import CI646.tracker.VehicleTracker;
 
 import javax.swing.*;
 import java.awt.*;

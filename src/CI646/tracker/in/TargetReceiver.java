@@ -1,6 +1,6 @@
-package CI346.tracker.in;
+package CI646.tracker.in;
 
-import CI346.tracker.VehicleTracker;
+import CI646.tracker.VehicleTracker;
 
 import java.io.BufferedReader;
 import java.io.IOException;
