@@ -87,7 +87,7 @@ difference does this make to the way the application runs?
 ## Exercise 2
 
 Add a new type of `Receiver` called `TargetReceiver`. This receiver will print to the console requesting
-an operator to enter the ID of a vehicle of special interest. Change the `VehicleGUI` class so that
+the user to enter the ID of a vehicle of special interest. Change the `VehicleGUI` class so that
 it queries the tracker to see if there is a targetted vehicle. If there is one, the `VehicleGUI` will
 call attention top it by drawing it on screen in a different colour.
 
